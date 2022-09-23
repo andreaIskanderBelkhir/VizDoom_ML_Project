@@ -5,11 +5,7 @@
     filecolor=magenta,      
     urlcolor=blue,
 }
-\usepackage[colorlinks = true,
-            linkcolor = blue,
-            urlcolor  = blue,
-            citecolor = blue,
-            anchorcolor = blue]{hyperref}
+
 # Progetto per Machine Learning su VizDoom 
 
 ##  Andrea Iskander Belkhir 511089
@@ -164,7 +160,9 @@ Dove movement reward è la reward gia presente nello scenario, il damage taken �
 In questo scenario si è notata una neccessità di aumentare il n_steps, learing rate e il numero totale di time_steps per avere risultati migliori, questo ha portato a molti addestramenti di svariate ore(per arrivare sui 500k time_steps sono necesarie piu di 9 ore) per provare a trovare iperparametri migliori e trovare fattori di sconto migliori per le ricompense create.
 Infatti è da notare che i parametri trovati online non sono ottimale per la macchina su cui è stato realizzato il progetto(per l'addestarmento viene usata la cpu in mancanza della gpu), questo è dovuto molto probabilmente al numero di frame analizzati durante l'addestramento (60 contro i 15 della mia macchina).
 
-Nel corso di giorni sono state provate diversi settaggi sia di iperparametri che di reward(documentati nel notebook) ma per tutti ad un certo punto del training (fra i 100k e i 200k time_steps) il tempo medio del modello cala sempre sotto i 100 che se questo andava bene per lo scenario 1 per questo scenario è sinonimo di errore in quanto significa che il modello si sta overfittando ovvero in questo caso ignora i nemici e cerca di andare dritto risultando quindi magari ad una reward piu alta ma un comportamento sbagliato.
+Nel corso di giorni sono state provate diversi settaggi sia di iperparametri che di reward(documentati nel notebook) ma per tutti ad un certo punto del training (fra i 100k e i 200k time_steps) il tempo medio del modello cala sempre sotto i 100 che, se questo andava bene per lo scenario 1, per questo scenario è sinonimo di errore in quanto significa che il modello si sta overfittando ovvero in questo caso ignora i nemici e cerca di andare dritto risultando quindi magari ad una reward piu alta ma un comportamento sbagliato.
+
+Dopo circa una settimana di tentativi si è trovata una combinazione di valori per i reward tali che dopo circa 700000 times_steps abbiamo un risultato non ottimale ma comunque otteniamo un agente in grado di finire lo scenario, anche se solo poche volte(circa una volta su cinque), visionando il modello possiamo anche vedere come capita che l'agente prenda strane decisioni quando uccidendo i nemici ne raccoglie l'arma come tornare indietro e stare fermo davanti un muro.
 
 
 ![defend_the_cented.gif](./defende_center.gif)
